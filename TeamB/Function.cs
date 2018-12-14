@@ -26,7 +26,7 @@ namespace TeamB
             context.Logger.Log("Team B Message received");
             context.Logger.Log("Received body:" + input.Body);
             var request = JsonConvert.DeserializeObject<dynamic>(input.Body);
-            decimal calculatedResult = new Calculator().GetResult(request.problem);
+            decimal calculatedResult = new Calculator().GetResult((string) request.problem);
             return new APIGatewayProxyResponse()
             {
                 Body = "{\"result\":" + calculatedResult +"}",StatusCode = 200
