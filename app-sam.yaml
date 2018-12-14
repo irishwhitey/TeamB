@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Lambda function
+
+Resources:
+  Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: TeamBFunction      
+      Handler: TeamB::TeamB.Function::FunctionHandler
+      Runtime: dotnetcore2.1
+      CodeUri: TeamB/build_output/
+      Timeout: 30
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /
+            Method: post
