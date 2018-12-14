@@ -3,11 +3,11 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore TeamA/TeamA.csproj
+      - dotnet restore TeamB/TeamB.csproj
   build:
     commands:
     - echo Build started on `date`
-    - dotnet publish -c release -o ./build_output TeamA/TeamA.csproj
+    - dotnet publish -c release -o ./build_output TeamB/TeamB.csproj
     - aws cloudformation package --template-file app-sam.yaml --s3-bucket ccl-training --output-template-file app-output_sam.yaml    
 artifacts:
   files:
