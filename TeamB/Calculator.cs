@@ -21,11 +21,11 @@ namespace TeamB
                 if (problem.Contains("*"))
                 {
                     return Calculate(decimal.Parse(split[0]), "*", split);
-                    return decimal.Parse(split[0]) * decimal.Parse(split[2]);
                 }
                 if (problem.Contains("/"))
                 {
-                    return decimal.Parse(split[0]) / decimal.Parse(split[2]);
+                    return Calculate(decimal.Parse(split[0]), "/", split);
+                    
                 }
 
             }
@@ -57,8 +57,7 @@ namespace TeamB
                         result -= decimal.Parse(split[i]);
                     }
                     return result;
-                default:
-                    return 0;
+                
 
                 case "*":
                     result = startingValue;
@@ -68,6 +67,18 @@ namespace TeamB
                         result *= decimal.Parse(split[x]);
                     }
                     return result;
+                case "/":
+                    result = startingValue;
+                    for (int x = 2; x <= split.Length; x += 2)
+                    {
+
+                        result /= decimal.Parse(split[x]);
+                    }
+                    return result;
+                default:
+                    return 0;
+
+
 
             }
 
