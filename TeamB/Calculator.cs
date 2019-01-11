@@ -13,6 +13,18 @@ namespace TeamB
                 {
                     return decimal.Parse(split[0]) + decimal.Parse(split[2]);
                 }
+                if (problem.Contains("-"))
+                {
+                    return decimal.Parse(split[0]) - decimal.Parse(split[2]);
+                }
+                if (problem.Contains("*"))
+                {
+                    return decimal.Parse(split[0]) * decimal.Parse(split[2]);
+                }
+                if (problem.Contains("/"))
+                {
+                    return decimal.Parse(split[0]) / decimal.Parse(split[2]);
+                }
 
             }
             catch (Exception e)
