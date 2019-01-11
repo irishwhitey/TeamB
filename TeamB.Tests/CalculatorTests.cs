@@ -11,5 +11,11 @@ namespace TeamB.Tests
             var expected = 0;
             Assert.That(new Calculator().GetResult(""), Is.EqualTo(expected));
         }
+
+        [Test]
+        public void ItShouldNotBlowUp()
+        {
+            new Calculator().GetResult("fred + 1");
+        }
     }
 }

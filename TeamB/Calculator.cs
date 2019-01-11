@@ -1,10 +1,12 @@
+using System;
+
 namespace TeamB
 {
     public class Calculator
     {
         public decimal GetResult(string problem)
         {
-            return 9;
+            throw new Exception("bad stuff");
         }
     }
 }
