@@ -21,6 +21,12 @@ namespace TeamB
                 }
                 if (problem.Contains("-"))
                 {
+                    decimal result = decimal.Parse(split[0]);
+                    for (int i = 2; i < split.Length; i += 2)
+                    {
+                        result -= decimal.Parse(split[i]);
+                    }
+                    return result;
                     return decimal.Parse(split[0]) - decimal.Parse(split[2]);
                 }
                 if (problem.Contains("*"))
