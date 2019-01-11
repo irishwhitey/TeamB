@@ -5,11 +5,10 @@ namespace TeamB.Tests
     [TestFixture]
     public class CalculatorTests
     {
-        [Test]
-        public void ItShouldReturnSomething()
+        [TestCase("3 + 4",7)]
+        public void ItShouldReturnSomething(string problem, decimal expected)
         {
-            var expected = 0;
-            Assert.That(new Calculator().GetResult(""), Is.EqualTo(expected));
+            Assert.That(new Calculator().GetResult(problem), Is.EqualTo(expected));
         }
 
         [Test]
