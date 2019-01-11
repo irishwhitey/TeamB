@@ -12,25 +12,15 @@ namespace TeamB
                 var split = problem.Split(" ");
                 if (problem.Contains("+"))
                 {
-                    decimal result = 0;
-                    for (int i = 0; i < split.Length; i+=2)
-                    {
-                        result += decimal.Parse(split[i]);
-                    }
-                    return result;
+                    return Calculate(0, "+", split);
                 }
                 if (problem.Contains("-"))
                 {
-                    decimal result = decimal.Parse(split[0]);
-                    for (int i = 2; i < split.Length; i += 2)
-                    {
-                        result -= decimal.Parse(split[i]);
-                    }
-                    return result;
-                    return decimal.Parse(split[0]) - decimal.Parse(split[2]);
+                    return Calculate(decimal.Parse(split[0]), "-", split);
                 }
                 if (problem.Contains("*"))
                 {
+                    return Calculate(decimal.Parse(split[0]), "*", split);
                     return decimal.Parse(split[0]) * decimal.Parse(split[2]);
                 }
                 if (problem.Contains("/"))
@@ -43,9 +33,47 @@ namespace TeamB
             {
                 return 3;
             }
-
             return 0;
+        }
+
+        private decimal Calculate(decimal startingValue, string operator1, string[] split)
+        {
+            decimal result;
+            switch (operator1)
+            {
+                case "+":
+                     result = startingValue;
+                    for (int i = 0; i < split.Length; i += 2)
+                    {
+
+                        result += decimal.Parse(split[i]);
+                    }
+                    return result;
+
+                case "-":
+                     result = startingValue;
+                    for (int i = 2; i < split.Length; i += 2)
+                    {
+                        result -= decimal.Parse(split[i]);
+                    }
+                    return result;
+                default:
+                    return 0;
+
+                case "*":
+                    result = startingValue;
+                    for (int x = 2; x <= split.Length; x += 2)
+                    {
+
+                        result *= decimal.Parse(split[x]);
+                    }
+                    return result;
+
+            }
+
 
         }
+
+
     }
 }
