@@ -8,10 +8,16 @@ namespace TeamB
         {
             try
             {
+                
                 var split = problem.Split(" ");
                 if (problem.Contains("+"))
                 {
-                    return decimal.Parse(split[0]) + decimal.Parse(split[2]);
+                    decimal result = 0;
+                    for (int i = 0; i < split.Length; i+=2)
+                    {
+                        result += decimal.Parse(split[i]);
+                    }
+                    return result;
                 }
                 if (problem.Contains("-"))
                 {
