@@ -35,6 +35,12 @@ namespace TeamB
                             break;
                         case "-": toReturn1 -= exp1.Value();
                             break;
+                        case "*":
+                            toReturn1 *= exp1.Value();
+                            break;
+                        case "/":
+                            toReturn1 /= exp1.Value();
+                            break;
                     }
                 }
 
