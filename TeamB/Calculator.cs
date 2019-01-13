@@ -13,6 +13,7 @@ namespace TeamB
             try
             {
                 var splitted = new Regex(" ").Split(problem +" + 0") ;
+                var splitted2 = new Regex("()(?<=\\().+?(?=\\)) | ").Split(problem);
                 var expressions = new List<Expression>();
                 var expressions1 = new List<Expression>();
                 foreach (var s in splitted)
@@ -51,7 +52,6 @@ namespace TeamB
             {
                 return -100;
             }
-            return 7;
         }
 
       
@@ -60,18 +60,63 @@ namespace TeamB
     {
         private readonly string _ex;
         public readonly string _operator1;
+        public List<Expression> innerExpressions;
+        
 
         public Expression(string ex, string operator1=null)
         {
-            _ex = ex;
+            if (ex.Contains("("))
+            {
+                var splitted = new Regex(" ").Split(ex + " + 0");
+                for (int i = 1; i < splitted.Length - 1; i += 2)
+                {
+                    innerExpressions.Add(new Expression(splitted.ElementAt(i + 1), splitted.ElementAt(i)));
+                }
+            }
+            else
+            {
+                _ex = ex;
+            }
             _operator1 = operator1;
         }
 
         public decimal Value()
         {
-            if (_ex == "+") return 0;
+            if (innerExpressions!=null && innerExpressions.Count >0)
+            {
+                var toReturn = innerExpressions.ElementAt(0).Value();
+                
+                for (int i = 1; i < innerExpressions.Count; i++)
+                {
+                    
+                }
+                
+            }
             return decimal.Parse(_ex);
         }
+
+        public decimal JoinWith(Expression exp)
+        {
+            decimal toReturn = 0;
+                switch (this._operator1)
+                {
+                    case "+":
+                        toReturn += exp.Value();
+                        break;
+                    case "-":
+                        toReturn -= exp.Value();
+                        break;
+                    case "*":
+                        toReturn *= exp.Value();
+                        break;
+                    case "/":
+                        toReturn /= exp.Value();
+                        break;
+                }
+
+            return toReturn;
         
+        }
+
     }
 }
