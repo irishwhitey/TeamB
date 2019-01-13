@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace TeamB
 {
@@ -8,24 +10,16 @@ namespace TeamB
         {
             try
             {
-                
-                var split = problem.Split(" ");
-                if (problem.Contains("+"))
+                var splitted = new Regex(" ").Split(problem);
+                var expressions = new List<Expression>();
+                foreach (var s in splitted)
                 {
-                    return Calculate(0, "+", split);
+                    expressions.Add(new Expression(s));
                 }
-                if (problem.Contains("-"))
+                //var toReturn = 
+                foreach (var expression in expressions)
                 {
-                    return Calculate(decimal.Parse(split[0]), "-", split);
-                }
-                if (problem.Contains("*"))
-                {
-                    return Calculate(decimal.Parse(split[0]), "*", split);
-                }
-                if (problem.Contains("/"))
-                {
-                    return Calculate(decimal.Parse(split[0]), "/", split);
-                    
+                  //  return expression +=
                 }
 
             }
@@ -33,58 +27,26 @@ namespace TeamB
             {
                 return 3;
             }
-            return 0;
+            return 7;
         }
 
-        private decimal Calculate(decimal startingValue, string operator1, string[] split)
+        private void CreateExpression(string s)
         {
-            decimal result;
-            switch (operator1)
-            {
-                case "+":
-                     result = startingValue;
-                    for (int i = 0; i < split.Length; i += 2)
-                    {
-
-                        result += decimal.Parse(split[i]);
-                    }
-                    return result;
-
-                case "-":
-                     result = startingValue;
-                    for (int i = 2; i < split.Length; i += 2)
-                    {
-                        result -= decimal.Parse(split[i]);
-                    }
-                    return result;
-                
-
-                case "*":
-                    result = startingValue;
-                    for (int x = 2; x <= split.Length; x += 2)
-                    {
-
-                        result *= decimal.Parse(split[x]);
-                    }
-                    return result;
-                case "/":
-                    result = startingValue;
-                    for (int x = 2; x <= split.Length; x += 2)
-                    {
-
-                        result /= decimal.Parse(split[x]);
-                    }
-                    return result;
-                default:
-                    return 0;
-
-
-
-            }
-
-
+            
+        }
+    }
+    public class Expression
+    {
+        private readonly string _ex;
+        
+        public Expression(string ex)
+        {
+            _ex = ex;
         }
 
-
+        public decimal Value()
+        {
+            return decimal.Parse(_ex);
+        }
     }
 }
