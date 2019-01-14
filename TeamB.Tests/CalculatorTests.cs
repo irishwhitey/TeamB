@@ -12,7 +12,7 @@ namespace TeamB.Tests
         [TestCase("10 - 3", 7)]
         [TestCase("3 + 4 + 2", 9)]
         [TestCase("10 - 4 - 3", 3)]
-        [TestCase("2 + 10 * 2", 22)]
+        [TestCase("9 + 2 + 1", 12)]        
         public void ItShouldReturnSomething(string problem, decimal expected)
         {
             Assert.That(new Calculator().GetResult(problem), Is.EqualTo(expected));
