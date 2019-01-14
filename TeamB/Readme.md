@@ -47,3 +47,4 @@ Deploy function to AWS Lambda
     cd "TeamA/src/TeamA"
     dotnet lambda deploy-function
 ```
+
