@@ -17,6 +17,7 @@ namespace TeamB.Tests
         [TestCase("24 / 6 / 2", 2)]        
         [TestCase("10 ^ 2", 100)]        
         [TestCase("10 + -4", 6)]        
+        [TestCase("3 * 1 * -4", -12)]        
         public void ItShouldReturnSomething(string problem, decimal expected)
         {
             Assert.That(new Calculator().GetResult(problem), Is.EqualTo(expected));
