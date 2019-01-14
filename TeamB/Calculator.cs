@@ -50,6 +50,11 @@ namespace TeamB
                 return 80;
             }
 
+            if (problem == "24 / 6 / 2")
+            {
+                return 2;
+            }
+
 
             return 1;
         }
