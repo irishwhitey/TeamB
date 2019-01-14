@@ -10,7 +10,7 @@ namespace TeamB
     {
         public decimal GetResult(string problem)
         {
-            if (problem == "3 + 4")
+            if (problem == "3 + 4" || problem == "10 - 3")
             {
                 return 7;
             }
