@@ -23,5 +23,12 @@ namespace TeamB.Tests
             Assert.That(new Calculator().GetResult(problem), Is.EqualTo(expected));
         }
       
+        [TestCase("3 + 4", 7)]
+        public void ItShouldReturnSomething_ProperVersion(string problem, decimal expected)
+        {
+            var result = 3M + 4;
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
