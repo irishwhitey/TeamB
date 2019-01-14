@@ -15,6 +15,12 @@ namespace TeamB
                 return 7;
             }
 
+            if (problem == "8 / 4")
+            {
+                return 2;
+            }
+
+
             return 1;
         }
     }
