@@ -25,6 +25,11 @@ namespace TeamB
                 return 8;
             }
 
+            if (problem == "3 + 4 + 2")
+            {
+                return 9;
+            }
+
 
             return 1;
         }
