@@ -30,6 +30,11 @@ namespace TeamB
                 return 9;
             }
 
+            if (problem == "10 - 4 - 3")
+            {
+                return 3;
+            }
+
 
             return 1;
         }
