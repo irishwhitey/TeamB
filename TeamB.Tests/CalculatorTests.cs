@@ -5,7 +5,7 @@ namespace TeamB.Tests
     [TestFixture]
     public class CalculatorTests
     {
-        [TestCase("2 * 8",7)]
+        [TestCase("10 * 4 * 2", 80)]
         public void ItShouldReturnSomething(string problem, decimal expected)
         {
             Assert.That(new Calculator().GetResult(problem), Is.EqualTo(expected));
