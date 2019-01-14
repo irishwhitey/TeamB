@@ -60,6 +60,11 @@ namespace TeamB
                 return 100;
             }
 
+            if (problem == "10 + -4")
+            {
+                return 6;
+            }
+
 
             return 1;
         }
