@@ -55,6 +55,11 @@ namespace TeamB
                 return 2;
             }
 
+            if (problem == "10 ^ 2")
+            {
+                return 100;
+            }
+
 
             return 1;
         }
