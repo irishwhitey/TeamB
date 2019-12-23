@@ -15,6 +15,7 @@ namespace TeamB.Tests
         [TestCase("5 - 2 - 1", 2)]
         [TestCase("12 - 1", 11)]
         [TestCase("3 * 3", 9)]
+        [TestCase("5 * 4", 20)]
         public void ItCalculatesValidProblem(string problem, int answer)
         {
             var calc = new Calculator();
