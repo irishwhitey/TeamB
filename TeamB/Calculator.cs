@@ -1,3 +1,5 @@
+using System.Linq;
+
 namespace TeamB
 {
     public class Calculator
@@ -7,13 +9,9 @@ namespace TeamB
             if (problem == string.Empty)
                 return 0;
 
-            if (problem == "5 + 4")
-                return 9;
+            var splitProblem = problem.Split('+');
 
-            if (problem == "93 + 1")
-                return 94;
-
-            return int.Parse(problem);
+            return splitProblem.Sum(int.Parse);
         }
     }
 }
