@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 
 namespace TeamB
@@ -6,12 +7,19 @@ namespace TeamB
     {
         public decimal GetResult(string problem)
         {
-            if (problem == string.Empty)
+            try
+            {
+                if (problem == string.Empty)
+                    return 0;
+
+                var splitProblem = problem.Split('+');
+
+                return splitProblem.Sum(int.Parse);
+            }
+            catch (Exception e)
+            {
                 return 0;
-
-            var splitProblem = problem.Split('+');
-
-            return splitProblem.Sum(int.Parse);
+            }
         }
     }
 }

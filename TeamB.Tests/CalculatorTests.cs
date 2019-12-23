@@ -29,5 +29,12 @@ namespace TeamB.Tests
             var result2 = calc.GetResult("93 + 1");
             Assert.That(result2, Is.EqualTo(94));
         }
+
+        [Test]
+        public void ItDoesNotBlowUp()
+        {
+            var calc = new Calculator();
+            Assert.DoesNotThrow(() => calc.GetResult("(1+3) * (7+9)"));
+        }
     }
 }
