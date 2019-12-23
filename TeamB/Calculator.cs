@@ -18,14 +18,13 @@ namespace TeamB
                 if (problem == "12 - 1")
                     return 11;
 
-                if (problem == "3 * 3")
-                    return 9;
-
-                if (problem == "5 * 4")
-                    return 20;
+                if (problem.Contains("*"))
+                {
+                    var splitMultiplication = problem.Split('*');
+                    return splitMultiplication.Aggregate(1, (a, b) => a * int.Parse(b));
+                }
 
                 var splitProblem = problem.Split('+');
-
                 return splitProblem.Sum(int.Parse);
             }
             catch (Exception e)
