@@ -25,6 +25,9 @@ namespace TeamB.Tests
             var calc = new Calculator();
             var result = calc.GetResult("5 + 4");
             Assert.That(result, Is.EqualTo(9));
+
+            var result2 = calc.GetResult("93 + 1");
+            Assert.That(result2, Is.EqualTo(94));
         }
     }
 }
