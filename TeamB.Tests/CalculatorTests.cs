@@ -5,29 +5,19 @@ namespace TeamB.Tests
     [TestFixture]
     public class CalculatorTests
     {
-        [Test]
-        public void ItReturnsASingleNumber()
+        [TestCase("98", 98)]
+        [TestCase("0", 0)]
+        [TestCase("", 0)]
+        [TestCase("5 + 4", 9)]
+        [TestCase("93 + 1", 94)]
+        [TestCase("2 + 2 + 3", 7)]
+        [TestCase("93 + -1", 92)]
+        [TestCase("5 - 2 - 1", 2)]
+        public void ItCalculatesValidProblem(string problem, int answer)
         {
             var calc = new Calculator();
-            var result = calc.GetResult("98");
-            Assert.That(result, Is.EqualTo(98));
-
-            var result2 = calc.GetResult("0");
-            Assert.That(result2, Is.EqualTo(0));
-
-            var result3 = calc.GetResult(string.Empty);
-            Assert.That(result3, Is.EqualTo(0));
-        }
-
-        [Test]
-        public void ItReturnSumOfFigures()
-        {
-            var calc = new Calculator();
-            var result = calc.GetResult("5 + 4");
-            Assert.That(result, Is.EqualTo(9));
-
-            var result2 = calc.GetResult("93 + 1");
-            Assert.That(result2, Is.EqualTo(94));
+            var result = calc.GetResult(problem);
+            Assert.That(result, Is.EqualTo(answer));
         }
 
         [Test]
