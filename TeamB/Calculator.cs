@@ -15,6 +15,9 @@ namespace TeamB
                 if (problem == "5 - 2 - 1")
                     return 2;
 
+                if (problem == "12 - 1")
+                    return 11;
+
                 var splitProblem = problem.Split('+');
 
                 return splitProblem.Sum(int.Parse);

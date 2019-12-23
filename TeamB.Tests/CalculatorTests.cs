@@ -13,6 +13,7 @@ namespace TeamB.Tests
         [TestCase("2 + 2 + 3", 7)]
         [TestCase("93 + -1", 92)]
         [TestCase("5 - 2 - 1", 2)]
+        [TestCase("12 - 1", 11)]
         public void ItCalculatesValidProblem(string problem, int answer)
         {
             var calc = new Calculator();
