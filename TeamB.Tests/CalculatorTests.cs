@@ -18,5 +18,13 @@ namespace TeamB.Tests
             var result3 = calc.GetResult(string.Empty);
             Assert.That(result3, Is.EqualTo(0));
         }
+
+        [Test]
+        public void ItReturnSumOfFigures()
+        {
+            var calc = new Calculator();
+            var result = calc.GetResult("5 + 4");
+            Assert.That(result, Is.EqualTo(9));
+        }
     }
 }
