@@ -14,6 +14,9 @@ namespace TeamB.Tests
 
             var result2 = calc.GetResult("0");
             Assert.That(result2, Is.EqualTo(0));
+
+            var result3 = calc.GetResult(string.Empty);
+            Assert.That(result3, Is.EqualTo(0));
         }
     }
 }
