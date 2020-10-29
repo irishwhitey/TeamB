@@ -17,8 +17,7 @@ namespace TeamB
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+
             }
             return -6;
         }
