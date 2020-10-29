@@ -7,12 +7,20 @@ namespace TeamB
     {
         public decimal GetResult(string problem)
         {
-            if (problem.Contains("*"))
+            try
             {
-                var split = problem.Split("*");
-                return decimal.Parse(split[0]) * decimal.Parse(split[1]);
+                if (problem.Contains("*"))
+                {
+                    var split = problem.Split("*");
+                    return decimal.Parse(split[0]) * decimal.Parse(split[1]);
+                }
             }
-            return -2;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return -6;
         }
     }
 }
