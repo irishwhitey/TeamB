@@ -7,7 +7,14 @@ namespace TeamB
     {
         public decimal GetResult(string problem)
         {
-            return 98;
+            decimal result = 0;
+            var numbers = problem.Split("+");
+            foreach (var num in numbers)
+            {
+                result += Convert.ToDecimal(num);
+            }
+
+            return result;
         }
     }
 }
